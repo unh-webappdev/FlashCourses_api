@@ -2,37 +2,26 @@
 User models for FlashCourses application
 Database: FlashCourses- mySQL
 """
-from django.db import models
 
-<<<<<<< HEAD
+from django.db import models
+from django.contrib.auth.models import User
+from django.contrib.auth.validators import ASCIIUsernameValidator
+from courses.models import Instution, Course
+
 import uuid
 
+class UserProfile(models.Model):
+    user_id = models.AutoField(auto_created=True, primary_key=True)
+    parent_user = models.ForeignKey(User,  on_delete=models.CASCADE, default=1)
+    parent_institution = models.ForeignKey(Instution, on_delete=models.CASCADE, default=1)
 
-class User(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    first_name = models.CharField(max_length=64)
-    last_name = models.CharField(max_length=64)
-
-    def get_full_name(self):
-        """
-        Returns full name in the following order: First name, Last Name.
-        """
-        return "{} {}".format(self.first_name, self.last_name)
-
-class UserIdentification(models.Model):
-    user_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    parent_user = models.ForeignKey(on_delete=models.CASCADE, default=1)
-    email = models.CharField(max_length=64)
-    password = models.CharField(max_length=100)
 
 class Deck(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    parent_user_id = models.ForeignKey(on_delete=models.CASCADE, default=1)
-    parent_course = models.ForeignKey(on_delete=models.CASCADE, default=1)
-    title = modles.CharField(max_length=64, null=False, blank=False)
+    UUID = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    parent_user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    parent_course = models.ForeignKey(Course, on_delete=models.CASCADE, default=1)
+    title = models.CharField(max_length=64, null=False, blank=False)
 
 class Card(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-
-=======
->>>>>>> 040e10a905c2a95c6e0ee1b105fffa607719a7cb
+    deck = models.ForeignKey(Deck, on_delete=models.CASCADE)
+    UUID = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
