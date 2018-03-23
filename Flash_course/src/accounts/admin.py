@@ -1,3 +1,12 @@
-from django.contrib import admin
+"""
+Admin panel for the Accounts app
+"""
 
-# Register your models here.
+from django.contrib import admin
+from .models import UserProfile
+
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display= ()
+
+admin.site.register(UserProfile, UserProfileAdmin)
+
