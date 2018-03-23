@@ -3,9 +3,10 @@ Admin panel for the Courses app
 """
 
 from django.contrib import admin
-from .models import Instution, Course
 
-class InstutionAdmin(admin.ModelAdmin):
+from .models import Institution, Course
+
+class InstitutionAdmin(admin.ModelAdmin):
     list_display= ()
 
 
@@ -15,5 +16,5 @@ class CourseAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(Instution, InstutionAdmin)
+admin.site.register(Institution, InstitutionAdmin)
 admin.site.register(Course, CourseAdmin)
