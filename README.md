@@ -1,3 +1,3 @@
 # FlashCourses_web
-Repository for the FlashCourses
+FlashCourses:
 API Repo (API, Unit-testing, DB-schema, Models)
