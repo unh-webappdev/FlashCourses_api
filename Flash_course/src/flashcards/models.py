@@ -1,3 +1,5 @@
+from django.db import models
+
 """
 Flash card models for FlashCourses application
 Database: FlashCourses- mySQL
@@ -21,3 +23,4 @@ class Card(models.Model):
     UUID = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     front = models.TextField()
     back = models.TextField()
+

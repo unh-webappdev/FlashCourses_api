@@ -1,4 +1,5 @@
-"""FlashCourses URL Configuration
+"""
+FlashCourses URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -17,6 +18,5 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('flashcards/', include('flashcards.urls', namespace='flashcards')),
+    path('admin/', admin.site.urls)
 ]

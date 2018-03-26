@@ -15,5 +15,3 @@ class DeckAdmin(admin.ModelAdmin):
 
 admin.site.register(Card, CardAdmin)
 admin.site.register(Deck, DeckAdmin)
-
-
