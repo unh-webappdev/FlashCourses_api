@@ -1,3 +1,4 @@
+from django.db import models
 """
 User models for FlashCourses application
 Database: FlashCourses- mySQL
