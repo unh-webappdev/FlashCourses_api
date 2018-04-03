@@ -17,8 +17,8 @@ class Deck(models.Model):
     title = models.CharField(max_length=64, null=False, blank=False)
 
 class Card(models.Model):
-    parent_deck = models.ForeignKey(Deck, on_delete=models.CASCADE)
     UUID = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    parent_deck = models.ForeignKey(Deck, on_delete=models.CASCADE)
     front = models.TextField()
     back = models.TextField()
 
