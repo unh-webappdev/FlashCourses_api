@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'courses',
     'flashcards',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

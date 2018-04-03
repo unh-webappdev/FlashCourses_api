@@ -28,3 +28,4 @@ urlpatterns = [
     path('card/delete/<pk>', views.DestroyCardAPIView.as_view()),
     path('card/update/<pk>', views.UpdateCardAPIView.as_view())
 ]
+
