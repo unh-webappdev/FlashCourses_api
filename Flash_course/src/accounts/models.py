@@ -13,10 +13,9 @@ from courses.models import Institution
 import uuid
 
 class UserProfile(models.Model):
-    user_id = models.AutoField(auto_created=True, primary_key=True)
     parent_user = models.ForeignKey(User,  on_delete=models.CASCADE, default=1)
     parent_institution = models.ForeignKey(Institution, on_delete=models.CASCADE, default=1)
 
-    def __str__(self):
-        return self.user_id
+
+
 
