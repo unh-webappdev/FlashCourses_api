@@ -1,3 +1,14 @@
+"""
+Django REST API settings for FlashCourses project.
+
+Filename:  api_settings.py
+File Path: FlashCourses/settings/api_settings.py
+
+By:              Patrick R. McElhiney
+Modified Date:   4/3/2018
+
+"""
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
