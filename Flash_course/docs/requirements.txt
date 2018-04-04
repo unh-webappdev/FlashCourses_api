@@ -5,3 +5,7 @@ django-filter==1.1.0
 djangorestframework==3.7.7
 djangorestframework-simplejwt==3.2.3
 Markdown==2.6.11
+django-cors-headers==2.2.0
+PyJWT==1.6.1
+python-memcached==1.59
+six==1.11.0
