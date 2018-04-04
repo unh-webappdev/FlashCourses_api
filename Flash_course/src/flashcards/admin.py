@@ -1,7 +1,9 @@
 """
 Admin panel for the Flashcard app
 """
+
 from django.contrib import admin
+
 
 from django.contrib import admin
 from .models import Card, Deck
@@ -15,5 +17,3 @@ class DeckAdmin(admin.ModelAdmin):
 
 admin.site.register(Card, CardAdmin)
 admin.site.register(Deck, DeckAdmin)
-
-

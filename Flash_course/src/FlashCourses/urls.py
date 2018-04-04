@@ -1,4 +1,5 @@
-"""FlashCourses URL Configuration
+"""
+FlashCourses URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -15,11 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path, include
+
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
     TokenVerifyView,
 )
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,3 +32,4 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 ]
+

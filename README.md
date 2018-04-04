@@ -36,4 +36,4 @@ telnet localhost 11211
 quit  
 
 ### Install CORS headers:
-sudo pip install django-cors-headers  
+sudo pip install django-cors-headers
