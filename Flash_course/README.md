@@ -1,12 +1,12 @@
-## Flash_Course
+# Flash_Course
 
-   # doc-
+   ## doc-
 
             Team: Project Logs, Instructionals
-   # scr-
+   ## scr-
 
             Source Code For FlashCourses
 
-   # static-
+   ## static-
 
             CSS, IMG, JS files
