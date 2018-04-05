@@ -14,7 +14,7 @@ with the common.py file
 > - Copy and paste the contents of common.py settings into a new file save that file as **private_settings.py**
 
 In your newly created **private_settings.py**
->   **Replace**
+>  **Replace**
 >  SECRET_KEY = os.environ.get('SECRET_KEY')
 > **To**
 > SECRET_KEY = os.environ.get "MADE_UP_CAPITAL_STRINGS’
