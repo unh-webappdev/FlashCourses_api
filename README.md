@@ -11,20 +11,10 @@ with the common.py file
 
 > - Create a new folder named: “settings”
 > - Move common.py to the new settings file
-> - Copy and paste the contents of common.py settings into a new file save that file as **private_settings.py**
+> - Create a new file in the same folder and save it as **private_settings.py**
 
-In your newly created **private_settings.py**
->  **Replace**
->  SECRET_KEY = os.environ.get('SECRET_KEY')
-> **To**
-> SECRET_KEY = os.environ.get "MADE_UP_CAPITAL_STRINGS’
-> **Replace**
-> DEBUG = False
-> **To**
-> DEBUG = True
-
->  Remove the remaining code from new private_settings.py
-     You should only have 2 items now in the file
+>  In your new private_settings.py
+     You should only have 2 items in the settings file file
 > - DEBUG = True
 > - SECRET_KEY = os.environ.get     SECRET_KEY = os.environ.get "MADE_UP_CAPITAL_STRINGS’
 
