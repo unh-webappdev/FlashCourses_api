@@ -1,4 +1,4 @@
-# flash schema
+# schema for flash
 
    ## doc-
 

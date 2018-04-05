@@ -1,4 +1,4 @@
-# Documentation : Flash Courses
+# Documentation : FlashCourses
 
 ###  Installation Steps to run FlashCourses Locally
 
