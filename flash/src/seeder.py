@@ -11,11 +11,9 @@ from flashcards.models import Deck, Card
 from faker.providers import BaseProvider
 
 #TODO: Ask Jon if we need the overwrite
-#TODO: Jon used count = 1, why not 0?
-#TODO: Ask Jon why we don't need course_id, it's not an auto field
 #TODO: Ask Jon what flush=True means.
 
-def seed_users(num_entries=10, overwrite=False):
+def seed_users(num_entries, overwrite=False):
     """
     Creates num_entries worth a new users
     """
@@ -42,14 +40,14 @@ def seed_users(num_entries=10, overwrite=False):
                 )
     print()
 
-def seed_institution(num_entries=10, overwrite=False):
+def seed_institution(num_entries, overwrite=False):
     """
     Creates num_entries worth a new Institution
     """
     count = 0
-    for _ in range(10):
+    for _ in range(num_entries):
         new_obj = Institution(
-            ipeds = random.randrange(11),
+            ipeds = random.randrange(num_entries),
             institution_name = fake.company(),
             location = fake.address(),
             )
@@ -63,15 +61,15 @@ def seed_institution(num_entries=10, overwrite=False):
                 )
     print()
 
-def seed_course(num_entries=10, overwrite=False):
+def seed_course(num_entries, overwrite=False):
     """
     Creates num_entries worth a new Course
     """
     institution = list(Institution.objects.all())
     count = 0
-    for _ in range(10):
+    for _ in range(num_entries):
         new_obj = Course(
-        course_number = random.randrange(11),
+        course_number = random.randrange(num_entries),
         parent_institution = random.choice(institution),
         )
         new_obj.save()
@@ -84,14 +82,14 @@ def seed_course(num_entries=10, overwrite=False):
                 )
     print()
 
-def seed_deck(num_entries=10, overwrite=False):
+def seed_deck(num_entries, overwrite=False):
     """
     Creates num_entries worth a new Deck
     """
     user = list(User.objects.all())
     course = list(Course.objects.all())
     count = 0
-    for _ in range(10):
+    for _ in range(num_entries):
         new_obj = Deck(
         parent_user = random.choice(user),
         parent_course = random.choice(course),
@@ -107,13 +105,13 @@ def seed_deck(num_entries=10, overwrite=False):
                 )
     print()
 
-def seed_card(num_entries=10, overwrite=False):
+def seed_card(num_entries, overwrite=False):
     """
     Creates num_entries worth of new Card
     """
     deck = list(Deck.objects.all())
     count = 0
-    for _ in range(10):
+    for _ in range(num_entries):
         new_obj = Card(
         parent_deck = random.choice(deck),
         front = fake.text(),
@@ -129,19 +127,19 @@ def seed_card(num_entries=10, overwrite=False):
                 )
     print()
 
-def seed_all(num_entries=10, overwrite=False):
+def seed_all(num_entries, overwrite=False):
     """
     Runs all seeder functions. Passes value of overwrite to all
     seeder function calls.
     """
     start_time = time.time()
-    # run seeds
+
     seed_users(num_entries=num_entries, overwrite=overwrite)
     seed_institution(num_entries=num_entries, overwrite=overwrite)
     seed_course(num_entries=num_entries, overwrite=overwrite)
     seed_deck(num_entries=num_entries, overwrite=overwrite)
     seed_card(num_entries=num_entries, overwrite=overwrite)
-    # get time
+
     elapsed_time = time.time() - start_time
     minutes = int(elapsed_time // 60)
     seconds = int(elapsed_time % 60)
