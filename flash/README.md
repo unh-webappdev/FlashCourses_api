@@ -1,4 +1,4 @@
-# Flash_Course
+# flash schema
 
    ## doc-
 
