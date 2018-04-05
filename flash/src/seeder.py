@@ -1,25 +1,16 @@
-# make sure to install faker...
-# pip install faker
 import time
 import random
 from faker import Faker
 fake = Faker()
 from django.contrib.auth.models import User
-from accounts.models import UserProfile
 from courses.models import Institution, Course
 from flashcards.models import Deck, Card
 from faker.providers import BaseProvider
-
-#TODO: Ask Jon if we need the overwrite
-#TODO: Ask Jon what flush=True means.
 
 def seed_users(num_entries, overwrite=False):
     """
     Creates num_entries worth a new users
     """
-    if overwrite:
-        print("Overwriting Users")
-        Users.objects.all().delete()
     count = 0
     for _ in range(num_entries):
         first_name = fake.first_name()
