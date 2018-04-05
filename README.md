@@ -13,8 +13,7 @@ with the common.py file
 > - Move common.py to the new settings file
 > - Create a new file in the same folder and save it as **private_settings.py**
 
->  In your new private_settings.py
-     You only need to have 2 items in this settings file
+>  In your new private_settings.py you only need to have 2 items in this settings file
 > - DEBUG = True
 > - SECRET_KEY = os.environ.get     SECRET_KEY = os.environ.get "MADE_UP_CAPITAL_STRINGS’
 
