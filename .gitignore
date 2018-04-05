@@ -105,3 +105,12 @@ ENV/
 
 # private settings file
 settings_private.py
+
+# Python byte code 
+.pyc
+
+# SQLite database.
+/db/*.sqlite3
+
+# Migrations
+migrations/
