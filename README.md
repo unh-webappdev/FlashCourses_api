@@ -15,7 +15,7 @@ with the common.py file
 
 >  In your new private_settings.py you only need to have 2 items in this settings file
 > - DEBUG = True
-> - SECRET_KEY = os.environ.get     SECRET_KEY = os.environ.get "MADE_UP_CAPITAL_STRINGS’
+> -SECRET_KEY = "MADE_UP_CAPITAL_STRINGS’
 
 ### Installing the packages needed to run the project
 
