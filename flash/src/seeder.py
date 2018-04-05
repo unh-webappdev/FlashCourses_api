@@ -1,3 +1,4 @@
+#pip3 install faker
 import time
 import random
 from faker import Faker
