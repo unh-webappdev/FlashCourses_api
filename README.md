@@ -1,39 +1,32 @@
-# FlashCourses_api
-Repository for the FlashCourses API
+# Documentation : FlashCourses
 
-## API Generic Views
-**/flashcards/api/deck/create**  
-**/flashcards/api/deck/retrieve/**`<pk>`  
-**/flashcards/api/deck/list/**  
-**/flashcards/api/deck/delete/**`<pk>`   
-**/flashcards/api/deck/update/**`<pk>`   
-**/flashcards/api/card/create**  
-**/flashcards/api/card/retrieve/**`<pk>`   
-**/flashcards/api/card/list/**  
-**/flashcards/api/card/delete/**`<pk>`     
-**/flashcards/api/card/update/**`<pk>`    
+###  Installation Steps to run FlashCourses Locally
 
-To access any of these URLs, navigate your browser to the server's address, followed by the URL. When we refer to `<pk>`, this always means that you must specify the Primary Key value, which is the model's UUID. You can retrieve these values with the /list/ URLs.
+COMP-805 Django-FlashCourses group project
+Configuration of the settings to run the project locally without posting private information on GitHub
 
-## Installation:
-The following commands need to be run to install the necessary software for the REST API at the command prompt:
+***Settings-***
+You will need to create your own settings_private.py file to be able to run the project correctly
+with the common.py file
 
-### Install REST Framework:
-sudo pip install djangorestframework  
-sudo pip install markdown  
-sudo pip install django-filter  
+> - Create a new folder named: “settings”
+> - Move common.py to the new settings file
+> - Create a new file in the same folder and save it as **private_settings.py**
 
-### Install SimpleJWT:
-sudo pip install djangorestframework_simplejwt  
+>  In your new private_settings.py you only need to have 2 items in this settings file
+> - DEBUG = True
+> -SECRET_KEY = "MADE_UP_CAPITAL_STRINGS’
 
-### Install Memcached: (https://www.memcached.org/) 
-sudo apt-get install libevent-dev  
-sudo apt-get install memcached  
-sudo pip install python-memcached  
+### Installing the packages needed to run the project
 
-#### Verify that Memcached is working:
-telnet localhost 11211  
-quit  
+Within your virtual environment you will need to install all the packages that are within the requirements.txt to run the code base locally
 
-### Install CORS headers:
-sudo pip install django-cors-headers
+> Run from your terminal-
+> **$ pip3 install -r requirements.txt**
+
+> Check for errors
+> **$ python3 manage.py check**
+
+> Migrate the database
+> **$ python3 manage.py makemigrations**
+> **$ python3 manage.py migrate**
