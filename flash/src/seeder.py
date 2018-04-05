@@ -14,7 +14,6 @@ from faker.providers import BaseProvider
 #TODO: Jon used count = 1, why not 0?
 #TODO: Ask Jon why we don't need course_id, it's not an auto field
 #TODO: Ask Jon what flush=True means.
-#TODO: Seed all function
 
 def seed_users(num_entries=10, overwrite=False):
     """
@@ -94,11 +93,11 @@ def seed_deck(num_entries=10, overwrite=False):
     count = 0
     for _ in range(10):
         new_obj = Deck(
-        UUID = random.randrange(11),
         parent_user = random.choice(user),
         parent_course = random.choice(course),
         title = fake.first_name(),
         )
+        new_obj.save()
         count += 1
         percent_complete = count / num_entries * 100
         print(
@@ -112,15 +111,15 @@ def seed_card(num_entries=10, overwrite=False):
     """
     Creates num_entries worth of new Card
     """
-    user = list(Deck.objects.all())
+    deck = list(Deck.objects.all())
     count = 0
     for _ in range(10):
         new_obj = Card(
-        UUID = random.randrange(11),
         parent_deck = random.choice(deck),
         front = fake.text(),
         back = fake.text(),
         )
+        new_obj.save()
         count += 1
         percent_complete = count / num_entries * 100
         print(
@@ -129,3 +128,21 @@ def seed_card(num_entries=10, overwrite=False):
                 flush=True
                 )
     print()
+
+def seed_all(num_entries=10, overwrite=False):
+    """
+    Runs all seeder functions. Passes value of overwrite to all
+    seeder function calls.
+    """
+    start_time = time.time()
+    # run seeds
+    seed_users(num_entries=num_entries, overwrite=overwrite)
+    seed_institution(num_entries=num_entries, overwrite=overwrite)
+    seed_course(num_entries=num_entries, overwrite=overwrite)
+    seed_deck(num_entries=num_entries, overwrite=overwrite)
+    seed_card(num_entries=num_entries, overwrite=overwrite)
+    # get time
+    elapsed_time = time.time() - start_time
+    minutes = int(elapsed_time // 60)
+    seconds = int(elapsed_time % 60)
+    print("Script Execution took: {} minutes {} seconds".format(minutes, seconds))
