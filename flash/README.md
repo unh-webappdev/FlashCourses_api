@@ -1,8 +1,8 @@
-# schema for flash
+# flash
 
-   ## doc-
+   ## docs-
 
-            Team: Project Logs, Instructionals
+            Team: Project Logs.md, Instructionals.md, and requirements.txt
    ## scr-
 
             Source Code For FlashCourses
