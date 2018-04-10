@@ -17,4 +17,4 @@ class CardSerializer(ModelSerializer):
     """ 
     class Meta: 
         model = Card 
-        fields = ('UUID', 'deck', 'front', 'back') 
+        fields = ('UUID', 'parent_deck', 'front', 'back') 

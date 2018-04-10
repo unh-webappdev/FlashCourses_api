@@ -15,7 +15,3 @@ import uuid
 class UserProfile(models.Model):
     parent_user = models.ForeignKey(User,  on_delete=models.CASCADE, default=1)
     parent_institution = models.ForeignKey(Institution, on_delete=models.CASCADE, default=1)
-
-
-
-
