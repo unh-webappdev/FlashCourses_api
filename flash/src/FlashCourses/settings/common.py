@@ -136,7 +136,3 @@ try:
 except ImportError:
     pass
 
-try:
-    from FlashCourses.settings.api_settings import *
-except ImportError:
-    pass
