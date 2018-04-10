@@ -13,6 +13,5 @@ from courses.models import Institution
 import uuid
 
 class UserProfile(models.Model):
-    unique_id = models.UUIDField(default=uuid.uuid4,editable=False,unique=True)
     parent_user = models.ForeignKey(User,  on_delete=models.CASCADE, default=1)
     parent_institution = models.ForeignKey(Institution, on_delete=models.CASCADE, default=1)
