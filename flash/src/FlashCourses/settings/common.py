@@ -135,4 +135,3 @@ try:
     from FlashCourses.settings.settings_private import *
 except ImportError:
     pass
-

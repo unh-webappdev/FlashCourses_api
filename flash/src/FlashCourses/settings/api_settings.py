@@ -4,7 +4,7 @@ Django REST API settings for FlashCourses project.
 Filename:  api_settings.py
 File Path: FlashCourses/settings/api_settings.py
 
-By:              Patrick R. McElhiney
+By:              Arjun Padaliya
 Modified Date:   4/7/2018
 
 """
@@ -15,6 +15,7 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
     ),
     'DEFAULT_THROTTLE_CLASSES': (
         'rest_framework.throttling.AnonRateThrottle',
