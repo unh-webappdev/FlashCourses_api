@@ -1,3 +1,10 @@
+"""
+Courses REST API Serializers
+
+By:    Patrick R. McElhiney
+Date:  4/10/2018
+"""
+
 from rest_framework.serializers import (
 ModelSerializer,
 )
@@ -9,7 +16,7 @@ class InstitutionSerializer(ModelSerializer):
     """
     class Meta:
         model=Institution
-        fields=('ipeds', 'institution_name', 'location')
+        fields=('unique_id', 'ipeds', 'institution_name', 'location')
 
 class CourseSerializer(ModelSerializer):
     """
@@ -17,4 +24,4 @@ class CourseSerializer(ModelSerializer):
     """
     class Meta:
         model=Course
-        fields=('course_title','course_number','course_id','parent_institution')
+        fields=('unique_id', 'course_title','course_number','course_id','parent_institution')
