@@ -135,8 +135,3 @@ try:
     from FlashCourses.settings.settings_private import *
 except ImportError:
     pass
-
-try:
-    from FlashCourses.settings.api_settings import *
-except ImportError:
-    pass
