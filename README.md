@@ -28,5 +28,5 @@ Within your virtual environment you will need to install all the packages that a
 > **$ python3 manage.py check**
 
 > Migrate the database
-> **$ python3 manage.py makemigrations**
-> **$ python3 manage.py migrate**
+> - **$ python3 manage.py makemigrations**
+> - **$ python3 manage.py migrate**
