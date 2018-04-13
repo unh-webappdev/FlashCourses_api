@@ -13,9 +13,9 @@ with the common.py file
 > - Move common.py to the new settings file
 > - Create a new file in the same folder and save it as **private_settings.py**
 
->  In your new private_settings.py you only need to have 2 items in this settings file
+>  In your new settings_private.py you only need to have 2 items in this settings file
 > - DEBUG = True
-> -SECRET_KEY = "MADE_UP_CAPITAL_STRINGS’
+> - SECRET_KEY = "MADE_UP_CAPITAL_STRINGS’
 
 ### Installing the packages needed to run the project
 
