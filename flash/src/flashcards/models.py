@@ -1,12 +1,10 @@
-from django.db import models
 """
 Flash card models for FlashCourses application
 Database: FlashCourses- mySQL
 """
 from django.db import models
-from django.contrib.auth.models import User
-from django.contrib.auth.validators import ASCIIUsernameValidator
 from courses.models import Course
+from accounts.models import User
 
 import uuid
 
@@ -38,6 +36,7 @@ class Deck(models.Model):
 
     def is_owner(self, user):
         '''
+        checks the owner and username
         '''
 
         return self.parent_user.username == user.username
@@ -47,6 +46,9 @@ class Deck(models.Model):
 
 class Card(models.Model):
     unique_id = models.UUIDField(default=uuid.uuid4())
-    parent_deck = models.ForeignKey(Deck, on_delete=models.CASCADE)
+    parent_deck = models.ForeignKey(Deck, on_delete=models.CASCADE, default=1)
     front = models.TextField()
     back = models.TextField()
+
+    def __str__(self):
+        return self.front + ' , ' + self.back
