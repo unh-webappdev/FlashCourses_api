@@ -1,4 +1,3 @@
-from django.db import models
 """
 Course models for FlashCourse application
 Database: FlashCourses- mySQL
