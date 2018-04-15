@@ -85,7 +85,6 @@ def seed_deck(num_entries, overwrite=False):
     for _ in range(num_entries):
         new_obj = Deck(
             title = fake.first_name(),
-            unique_id = uuid.uuid4(),
             parent_user = random.choice(user),
             parent_course = random.choice(course),
         )
@@ -107,7 +106,6 @@ def seed_card(num_entries, overwrite=False):
     count = 0
     for _ in range(num_entries):
         new_obj = Card(
-        unique_id = uuid.uuid4(),
         parent_deck = random.choice(deck),
         front = fake.text(),
         back = fake.text(),
