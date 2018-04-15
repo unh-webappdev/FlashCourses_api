@@ -10,12 +10,15 @@ import uuid
 
 class Deck(models.Model):
     title = models.CharField(max_length=64, null=False, blank=False)
-    unique_id = models.UUIDField(default=uuid.uuid4())
     parent_user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     parent_course = models.ForeignKey(Course, on_delete=models.CASCADE, default=1)
+    unique_id = models.UUIDField(
+                                default=uuid.uuid4,
+                                editable= False,
+                                unique=True)
 
-    #def __str__(self):
-    #    return self.title
+    def __str__(self):
+        return self.title
 
     def get_number_cards(self):
         """
@@ -38,17 +41,17 @@ class Deck(models.Model):
         '''
         checks the owner and username
         '''
-
         return self.parent_user.username == user.username
 
 
-
-
 class Card(models.Model):
-    unique_id = models.UUIDField(default=uuid.uuid4())
     parent_deck = models.ForeignKey(Deck, on_delete=models.CASCADE, default=1)
     front = models.TextField()
     back = models.TextField()
+    unique_id = models.UUIDField(
+                                default=uuid.uuid4,
+                                editable= False,
+                                unique=True)
 
     def __str__(self):
         return self.front + ' , ' + self.back
