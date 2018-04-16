@@ -1,5 +1,7 @@
+#pip3 install faker
 import time
 import random
+import uuid
 from faker import Faker
 fake = Faker()
 from django.contrib.auth.models import User
@@ -82,9 +84,9 @@ def seed_deck(num_entries, overwrite=False):
     count = 0
     for _ in range(num_entries):
         new_obj = Deck(
-        parent_user = random.choice(user),
-        parent_course = random.choice(course),
-        title = fake.first_name(),
+            title = fake.first_name(),
+            parent_user = random.choice(user),
+            parent_course = random.choice(course),
         )
         new_obj.save()
         count += 1
