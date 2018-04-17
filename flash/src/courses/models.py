@@ -7,9 +7,18 @@ from django.db import models
 import uuid
 
 class Institution(models.Model):
-    ipeds = models.CharField(max_length=64, null=False, blank=False)
-    institution_name = models.CharField(max_length=64, null=False, blank=False)
-    location = models.CharField(max_length=64, null=False, blank=False)
+    ipeds = models.CharField(
+                                max_length=64,
+                                null=False,
+                                blank=False)
+    institution_name = models.CharField(
+                                max_length=64,
+                                null=False,
+                                blank=False)
+    location = models.CharField(
+                                max_length=64,
+                                null=False,
+                                blank=False)
     unique_id = models.UUIDField(
                                 default=uuid.uuid4,
                                 editable= False,
@@ -33,9 +42,9 @@ class Course(models.Model):
                                 on_delete=models.CASCADE,
                                 default=1)
     course_discriptopn =  models.CharField(
-                            max_length=64,
-                            null=False,
-                            blank=False)
+                                max_length=64,
+                                null=False,
+                                blank=False)
     unique_id = models.UUIDField(
                                 default=uuid.uuid4,
                                 editable= False,
