@@ -1,12 +1,15 @@
 """
 FlashCourses REST API User Registration Serializer
 
-Created By:     Patrick R. McElhiney
-Modified Date:  4/6/2018
+File Path:     /flash/src/accounts/api/serializers.py
+
+Modified By:   Patrick R. McElhiney
+Date Modified: 4/16/2018
 """
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.models import User
+from django.contrib.auth import password_validation
 from ..models import UserProfile 
 
 class RegistrationSerializer(serializers.ModelSerializer):
@@ -17,7 +20,11 @@ class RegistrationSerializer(serializers.ModelSerializer):
     username = serializers.CharField(
             validators=[UniqueValidator(queryset=User.objects.all())]
             )
-    password = serializers.CharField(min_length=8)
+    password = serializers.CharField(style={'input_type': 'password'}, write_only=True)
+
+    def validate_password(self, value):
+        password_validation.validate_password(value, self.instance)
+        return value
 
     def create(self, validated_data):
         user = User.objects.create_user(validated_data['username'], validated_data['email'],
