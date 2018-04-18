@@ -17,7 +17,7 @@ inst_location           = 'location'
 # Course Fields Generalization
 cour_unique_id          = 'unique_id'
 cour_course_title       = 'course_title'
-cour_course_number      = 'course_number'
+cour_course_description = 'course_description'
 cour_course_id          = 'course_id'
 cour_parent_institution = 'parent_institution'
 
@@ -67,7 +67,7 @@ class CourseSerializer(ModelSerializer):
     """
     class Meta:
         model=Course
-        fields=(cour_unique_id, cour_course_title, cour_course_number, cour_course_id, cour_parent_institution)
+        fields=(cour_unique_id, cour_course_title, cour_course_description, cour_course_id, cour_parent_institution)
 
 
 class CourseOutputSerializer(ModelSerializer):
@@ -79,7 +79,7 @@ class CourseOutputSerializer(ModelSerializer):
 
     class Meta:
         model = Course
-        fields = (cour_unique_id, cour_course_title, cour_course_number, cour_course_id, cour_parent_institution, 'parent_institution_url')
+        fields = (cour_unique_id, cour_course_title, cour_course_description, cour_course_id, cour_parent_institution, 'parent_institution_url')
 
     def get_parent_institution(self, obj):
         return obj.parent_institution.unique_id
@@ -97,7 +97,7 @@ class CourseDetailSerializer(ModelSerializer):
     
     class Meta:
         model = Course
-        fields = (cour_unique_id, cour_course_title, cour_course_number, cour_course_id, cour_parent_institution, 'parent_institution_url', 'decks')
+        fields = (cour_unique_id, cour_course_title, cour_course_description, cour_course_id, cour_parent_institution, 'parent_institution_url', 'decks')
 
     def get_parent_institution(self, obj):
         return obj.parent_institution.unique_id
@@ -119,7 +119,7 @@ class CourseTreeSerializer(ModelSerializer):
     
     class Meta:
         model = Course
-        fields = (cour_unique_id, cour_course_title, cour_course_number, cour_course_id, cour_parent_institution, 'parent_institution_url', 'decks')
+        fields = (cour_unique_id, cour_course_title, cour_course_description, cour_course_id, cour_parent_institution, 'parent_institution_url', 'decks')
 
     def get_parent_institution(self, obj):
         return obj.parent_institution.unique_id
