@@ -42,7 +42,6 @@ class Course(models.Model):
                                 on_delete=models.CASCADE,
                                 default=1)
     course_description = models.CharField(
-
                                 max_length=64,
                                 null=False,
                                 blank=False)
