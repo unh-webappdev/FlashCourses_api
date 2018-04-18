@@ -52,4 +52,4 @@ class Course(models.Model):
                                 unique=True)
 
     def __str__(self):
-        return self.course_title + ' , ' + self.course_number
+        return self.course_title + ' , ' + self.course_id
