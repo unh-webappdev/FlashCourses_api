@@ -41,7 +41,8 @@ class Course(models.Model):
                                 Institution,
                                 on_delete=models.CASCADE,
                                 default=1)
-    course_description =  models.CharField(
+    course_description = models.CharField(
+
                                 max_length=64,
                                 null=False,
                                 blank=False)
