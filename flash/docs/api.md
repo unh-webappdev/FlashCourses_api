@@ -1,39 +1,59 @@
-# FlashCourses_api
-Repository for the FlashCourses API
+# Documentation : FlashCourses API
 
-## API Generic Views
-**/flashcards/api/deck/create**  
-**/flashcards/api/deck/retrieve/**`<pk>`  
-**/flashcards/api/deck/list/**  
-**/flashcards/api/deck/delete/**`<pk>`   
-**/flashcards/api/deck/update/**`<pk>`   
-**/flashcards/api/card/create**  
-**/flashcards/api/card/retrieve/**`<pk>`   
-**/flashcards/api/card/list/**  
-**/flashcards/api/card/delete/**`<pk>`     
-**/flashcards/api/card/update/**`<pk>`    
+University of New Hampshire, Manchester  
+COMP 805 - Advanced Web Development  
+FlashCourses Group Project  
 
-To access any of these URLs, navigate your browser to the server's address, followed by the URL. When we refer to `<pk>`, this always means that you must specify the Primary Key value, which is the model's UUID. You can retrieve these values with the /list/ URLs.
+**api.md by Patrick R. McElhiney**  
+Last Updated: 4/14/2018  
 
-## Installation:
-The following commands need to be run to install the necessary software for the REST API at the command prompt:
+###  Installation Steps to run FlashCourses API Locally
 
-### Install REST Framework:
-sudo pip install djangorestframework  
-sudo pip install markdown  
-sudo pip install django-filter  
+Configuration settings to run the APIs locally
 
-### Install SimpleJWT:
-sudo pip install djangorestframework_simplejwt  
+***api_settings.py***  
+Do not modify api_settings.py, as it contains all of the settings that are required to run the repository both locally and on the server.
 
-### Install Memcached: (https://www.memcached.org/) 
-sudo apt-get install libevent-dev  
-sudo apt-get install memcached  
-sudo pip install python-memcached  
+These settings include the following:
+> - JWT Authentication - used to authenticate valid users.
+> - Default Renderer - how the API is displayed in the web browser.
+> - Throttling - used to protect the server from hacking and DDoS attacks.
+> - CORS Headers - used to allow cross-site scripting.
+> - Caching - used to speed up the web server. This is disabled in the local copy.
 
-#### Verify that Memcached is working:
-telnet localhost 11211  
-quit  
 
-### Install CORS headers:
-sudo pip install django-cors-headers
+
+### Installing the packages needed to run the project
+
+Within your virtual environment you will need to install all the packages that are within the requirements.txt to run the code base locally
+
+> Run from your terminal
+> - **$ pip3 install -r requirements.txt**
+
+> Check for errors
+> - **$ python3 manage.py check**
+
+> Synchronize Apps with Database
+> - **$ python manage.py migrate --run-syncdb**  
+> 
+**If you are unable to load requirements.txt as shown above, you may use the following commands to install the packages:**
+
+> Install Django REST Framework
+> - **$ sudo pip install djangorestframework**
+> - **$ sudo pip install markdown**
+> - **$ sudo pip install django-filter**
+
+> Install SimpleJWT
+> - **$ sudo pip install djangorestframework_simplejwt**
+
+> Install Memcached
+> - **$ sudo apt-get install libevent-dev**
+> - **$ sudo apt-get install memcached**
+> - **$ sudo pip install python-memcached**
+
+> Verify that Memcached is working properly
+> - **$ telnet localhost 11211**
+> - **$ quit**
+
+> Install CORS headers
+> - **$ sudo pip install django-cors-headers**
