@@ -3,7 +3,6 @@ Course models for FlashCourse application
 Database: FlashCourses- mySQL
 """
 from django.db import models
-
 import uuid
 
 class Institution(models.Model):
