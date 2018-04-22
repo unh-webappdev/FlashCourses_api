@@ -1,8 +1,10 @@
 """
 FlashCourses REST API User Registration Class-Based View
 
-Created By:     Patrick R. McElhiney
-Modified Date:  4/6/2018
+File Path:     /flash/src/accounts/api/urls.py
+
+Modified By:   Patrick R. McElhiney
+Date Modified: 4/22/2018
 """
 from rest_framework.views import APIView
 from rest_framework.response import Response
