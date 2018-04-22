@@ -62,8 +62,10 @@ def seed_course(num_entries, overwrite=False):
     count = 0
     for _ in range(num_entries):
         new_obj = Course(
-        course_number = random.randrange(num_entries),
+        course_title = fake.first_name(),
+        course_id = random.randrange(100),
         parent_institution = random.choice(institution),
+        course_description= fake.text(),
         )
         new_obj.save()
         count += 1
@@ -87,6 +89,7 @@ def seed_deck(num_entries, overwrite=False):
             title = fake.first_name(),
             parent_user = random.choice(user),
             parent_course = random.choice(course),
+            deck_description = fake.text(),
         )
         new_obj.save()
         count += 1
