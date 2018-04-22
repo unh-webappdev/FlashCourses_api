@@ -9,10 +9,11 @@ Date Modified: 4/16/2018
 
 
 # Deck Fields Generalization
-deck_unique_id     = 'unique_id'
-deck_parent_user   = 'parent_user'
-deck_parent_course = 'parent_course'
-deck_title         = 'title'
+deck_unique_id        = 'unique_id'
+deck_parent_user      = 'parent_user'
+deck_parent_course    = 'parent_course'
+deck_title            = 'title'
+deck_deck_description = 'deck_description'
 
 # Card Fields Generalization
 card_unique_id     = 'unique_id'
@@ -33,7 +34,7 @@ class DeckSerializer(ModelSerializer):
     """
     class Meta:
         model = Deck
-        fields = (deck_unique_id, deck_parent_user, deck_parent_course, deck_title)
+        fields = (deck_unique_id, deck_parent_user, deck_parent_course, deck_title, deck_deck_description)
 
 
 class DeckOutputSerializer(ModelSerializer):
@@ -46,7 +47,7 @@ class DeckOutputSerializer(ModelSerializer):
 
     class Meta:
         model = Deck
-        fields = (deck_unique_id, deck_parent_user, deck_parent_course, deck_title, 'parent_course_url')
+        fields = (deck_unique_id, deck_parent_user, deck_parent_course, deck_title, deck_deck_description, 'parent_course_url')
 
     def get_parent_user(self, obj):
         return obj.parent_user.username
@@ -69,7 +70,7 @@ class DeckDetailSerializer(ModelSerializer):
     
     class Meta:
         model = Deck
-        fields = (deck_unique_id, deck_parent_user, deck_parent_course, deck_title, 'parent_course_url', 'cards')
+        fields = (deck_unique_id, deck_parent_user, deck_parent_course, deck_title, deck_deck_description, 'parent_course_url', 'cards')
     
     def get_parent_user(self, obj):
         return obj.parent_user.username
