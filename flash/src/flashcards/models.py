@@ -44,6 +44,8 @@ class Deck(models.Model):
 
     def get_number_cards(self):
         """
+        Author: Aashirya Kaushik
+        Gets the number of cards
         arguments: self
         returns: card count
         """
@@ -51,6 +53,7 @@ class Deck(models.Model):
 
     def has_duplicates(self, card):
         """
+        Author: Aashirya Kaushik
         Checks if the card already exists
         arguments: self, card
         returns: False if it does and return True if not
@@ -63,6 +66,7 @@ class Deck(models.Model):
 
     def is_owner(self, user):
         """
+        Author: Aashirya Kaushik
         Checks the owner and username
         arguments: self, card
         returns: The user name
