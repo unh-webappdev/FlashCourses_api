@@ -1,5 +1,8 @@
 """
-Flash card models for FlashCourses application
+Author: Andrea Murphy
+Last Updated: April 17
+Relative File Path: flash/src/flashcards/models.py
+Description: flashcards models for FlashCourse application
 Database: FlashCourses- mySQL
 """
 from django.db import models
@@ -41,14 +44,16 @@ class Deck(models.Model):
 
     def get_number_cards(self):
         """
-        checks the number of cards.
+        arguments: self
+        returns: card count
         """
         return self.card_set.count()
 
     def has_duplicates(self, card):
         """
-        checks if the card already exists,
-        returns False if it does and return True if not.
+        Checks if the card already exists
+        arguments: self, card
+        returns: False if it does and return True if not
         """
         cards = self.card_set.all()
         qs = cards.filter(front=card.front)
@@ -57,9 +62,11 @@ class Deck(models.Model):
         return False
 
     def is_owner(self, user):
-        '''
-        checks the owner and username
-        '''
+        """
+        Checks the owner and username
+        arguments: self, card
+        returns: The user name
+        """
         return self.parent_user.username == user.username
 
 

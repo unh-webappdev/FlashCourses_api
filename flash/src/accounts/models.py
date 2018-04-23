@@ -1,5 +1,8 @@
 """
-User models for FlashCourses application
+Author: Andrea Murphy
+Last Updated: April 17
+Relative File Path: flash/src/accounts/models.py
+Description: accounts models for FlashCourse application
 Database: FlashCourses- mySQL
 """
 
