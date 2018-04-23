@@ -9,6 +9,12 @@ from accounts.models import User
 import uuid
 
 class Deck(models.Model):
+    """
+    Deck model
+    Primary Key: Django auto ID
+    Foreign Key: User from django.contrib.auth.models
+    Foreign Key: Institition from courses.models
+    """
     title = models.CharField(
                             max_length=64,
                             null=False,
@@ -58,6 +64,11 @@ class Deck(models.Model):
 
 
 class Card(models.Model):
+    """
+    Card model
+    Primary Key: Django auto ID
+    Foreign Key: Deck from flashcards/models.py
+    """
     parent_deck = models.ForeignKey(
                             Deck,
                             on_delete=models.CASCADE,
