@@ -4,22 +4,22 @@ FlashCourses Decks & Cards REST API Serializers
 File Path:     /flash/src/flashcards/api/serializers.py
 
 Modified By:   Patrick R. McElhiney
-Date Modified: 4/16/2018
+Date Modified: 4/22/2018
 """
 
 
 # Deck Fields Generalization
-deck_unique_id        = 'unique_id'
-deck_parent_user      = 'parent_user'
-deck_parent_course    = 'parent_course'
-deck_title            = 'title'
-deck_deck_description = 'deck_description'
+DECK_UNIQUE_ID        = 'unique_id'
+DECK_PARENT_USER      = 'parent_user'
+DECK_PARENT_COURSE    = 'parent_course'
+DECK_TITLE            = 'title'
+DECK_DECK_DESCRIPTION = 'deck_description'
 
 # Card Fields Generalization
-card_unique_id     = 'unique_id'
-card_parent_deck   = 'parent_deck'
-card_front         = 'front'
-card_back          = 'back'
+CARD_UNIQUE_ID     = 'unique_id'
+CARD_PARENT_DECK   = 'parent_deck'
+CARD_FRONT         = 'front'
+CARD_BACK          = 'back'
 
 
 from rest_framework.serializers import (
@@ -34,7 +34,7 @@ class DeckSerializer(ModelSerializer):
     """
     class Meta:
         model = Deck
-        fields = (deck_unique_id, deck_parent_user, deck_parent_course, deck_title, deck_deck_description)
+        fields = (DECK_UNIQUE_ID, DECK_PARENT_USER, DECK_PARENT_COURSE, DECK_TITLE, DECK_DECK_DESCRIPTION)
 
 
 class DeckOutputSerializer(ModelSerializer):
@@ -47,7 +47,7 @@ class DeckOutputSerializer(ModelSerializer):
 
     class Meta:
         model = Deck
-        fields = (deck_unique_id, deck_parent_user, deck_parent_course, deck_title, deck_deck_description, 'parent_course_url')
+        fields = (DECK_UNIQUE_ID, DECK_PARENT_USER, DECK_PARENT_COURSE, DECK_TITLE, DECK_DECK_DESCRIPTION, 'parent_course_url')
 
     def get_parent_user(self, obj):
         return obj.parent_user.username
@@ -70,7 +70,7 @@ class DeckDetailSerializer(ModelSerializer):
     
     class Meta:
         model = Deck
-        fields = (deck_unique_id, deck_parent_user, deck_parent_course, deck_title, deck_deck_description, 'parent_course_url', 'cards')
+        fields = (DECK_UNIQUE_ID, DECK_PARENT_USER, DECK_PARENT_COURSE, DECK_TITLE, DECK_DECK_DESCRIPTION, 'parent_course_url', 'cards')
     
     def get_parent_user(self, obj):
         return obj.parent_user.username
@@ -92,7 +92,7 @@ class CardSerializer(ModelSerializer):
     """
     class Meta:
         model = Card
-        fields = (card_unique_id, card_parent_deck, card_front, card_back)
+        fields = (CARD_UNIQUE_ID, CARD_PARENT_DECK, CARD_FRONT, CARD_BACK)
 
 class CardOutputSerializer(ModelSerializer):
     """
@@ -103,7 +103,7 @@ class CardOutputSerializer(ModelSerializer):
 
     class Meta:
         model = Card
-        fields = (card_unique_id, card_parent_deck, card_front, card_back, 'parent_deck_url')
+        fields = (CARD_UNIQUE_ID, CARD_PARENT_DECK, CARD_FRONT, CARD_BACK, 'parent_deck_url')
 
     def get_parent_deck(self, obj):
         return obj.parent_deck.unique_id

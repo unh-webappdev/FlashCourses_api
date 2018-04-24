@@ -1,3 +1,11 @@
+"""
+Author: Andrea Murphy
+Last Updated: March
+Relative File Path: flash/src/FlashCourses/manage.py
+Description: manage.py that directs the os.environ to the common.py
+for development
+"""
+
 #!/usr/bin/env python
 import os
 import sys

@@ -1,5 +1,8 @@
 """
-Flash card models for FlashCourses application
+Author: Andrea Murphy
+Last Updated: April 17
+Relative File Path: flash/src/flashcards/models.py
+Description: flashcards models for FlashCourse application
 Database: FlashCourses- mySQL
 """
 from django.db import models
@@ -9,6 +12,12 @@ from accounts.models import User
 import uuid
 
 class Deck(models.Model):
+    """
+    Deck model
+    Primary Key: Django auto ID
+    Foreign Key: User from django.contrib.auth.models
+    Foreign Key: Institition from courses.models
+    """
     title = models.CharField(
                             max_length=64,
                             null=False,
@@ -35,14 +44,19 @@ class Deck(models.Model):
 
     def get_number_cards(self):
         """
-        checks the number of cards.
+        Author: Aashirya Kaushik
+        Gets the number of cards
+        arguments: self
+        returns: card count
         """
         return self.card_set.count()
 
     def has_duplicates(self, card):
         """
-        checks if the card already exists,
-        returns False if it does and return True if not.
+        Author: Aashirya Kaushik
+        Checks if the card already exists
+        arguments: self, card
+        returns: False if it does and return True if not
         """
         cards = self.card_set.all()
         qs = cards.filter(front=card.front)
@@ -51,13 +65,21 @@ class Deck(models.Model):
         return False
 
     def is_owner(self, user):
-        '''
-        checks the owner and username
-        '''
+        """
+        Author: Aashirya Kaushik
+        Checks the owner and username
+        arguments: self, card
+        returns: The user name
+        """
         return self.parent_user.username == user.username
 
 
 class Card(models.Model):
+    """
+    Card model
+    Primary Key: Django auto ID
+    Foreign Key: Deck from flashcards/models.py
+    """
     parent_deck = models.ForeignKey(
                             Deck,
                             on_delete=models.CASCADE,

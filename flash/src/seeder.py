@@ -11,7 +11,10 @@ from faker.providers import BaseProvider
 
 def seed_users(num_entries, overwrite=False):
     """
-    Creates num_entries worth a new users
+    Author: Bridget Franciscovich
+    Creates num_entries worth of new users
+    arguments: num_entries, overwrite=False
+    prints: The number of new fake users
     """
     count = 0
     for _ in range(num_entries):
@@ -35,7 +38,10 @@ def seed_users(num_entries, overwrite=False):
 
 def seed_institution(num_entries, overwrite=False):
     """
-    Creates num_entries worth a new Institution
+    Author: Bridget Franciscovich
+    Creates num_entries worth of new Institution
+    arguments: num_entries, overwrite=False
+    prints: The number of new fake institutions
     """
     count = 0
     for _ in range(num_entries):
@@ -56,14 +62,19 @@ def seed_institution(num_entries, overwrite=False):
 
 def seed_course(num_entries, overwrite=False):
     """
-    Creates num_entries worth a new Course
+    Author: Bridget Franciscovich
+    Creates num_entries worth of new Course
+    arguments: num_entries, overwrite=False
+    prints: The number of new fake courses
     """
     institution = list(Institution.objects.all())
     count = 0
     for _ in range(num_entries):
         new_obj = Course(
-        course_number = random.randrange(num_entries),
+        course_title = fake.first_name(),
+        course_id = random.randrange(100),
         parent_institution = random.choice(institution),
+        course_description= fake.text(),
         )
         new_obj.save()
         count += 1
@@ -77,7 +88,10 @@ def seed_course(num_entries, overwrite=False):
 
 def seed_deck(num_entries, overwrite=False):
     """
-    Creates num_entries worth a new Deck
+    Author: Bridget Franciscovich
+    Creates num_entries worth of new Deck
+    arguments: num_entries, overwrite=False
+    prints: The number of new fake decks
     """
     user = list(User.objects.all())
     course = list(Course.objects.all())
@@ -87,6 +101,7 @@ def seed_deck(num_entries, overwrite=False):
             title = fake.first_name(),
             parent_user = random.choice(user),
             parent_course = random.choice(course),
+            deck_description = fake.text(),
         )
         new_obj.save()
         count += 1
@@ -100,7 +115,10 @@ def seed_deck(num_entries, overwrite=False):
 
 def seed_card(num_entries, overwrite=False):
     """
+    Author: Bridget Franciscovich
     Creates num_entries worth of new Card
+    arguments: num_entries, overwrite=False
+    prints: The number of new fake cards
     """
     deck = list(Deck.objects.all())
     count = 0
@@ -122,8 +140,10 @@ def seed_card(num_entries, overwrite=False):
 
 def seed_all(num_entries, overwrite=False):
     """
-    Runs all seeder functions. Passes value of overwrite to all
-    seeder function calls.
+    Author: Bridget Franciscovich
+    Runs all seeder functions
+    arguments: num_entries, overwrite=False
+    prints: The number of new fake users, institutions, courses, decks, and cards
     """
     start_time = time.time()
 
