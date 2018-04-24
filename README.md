@@ -6,7 +6,9 @@
 ### COMP 805 - Web Application Development
 ### FlashCourses Group Project
 
-Configuration of the "settings" to run the project locally without posting private information on GitHub
+
+***Settings Configuration-***
+ To run the project locally without posting private information on GitHub
 
 ***Settings-***
 You will need to create your own settings_private.py file to be able to run the project correctly
