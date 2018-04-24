@@ -1,5 +1,8 @@
 """
-Course models for FlashCourse application
+Author: Andrea Murphy
+Last Updated: April 17
+Relative File Path: flash/src/courses/models.py
+Description: course models for FlashCourse application
 Database: FlashCourses- mySQL
 """
 from django.db import models
