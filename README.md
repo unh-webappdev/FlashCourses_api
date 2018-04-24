@@ -1,6 +1,6 @@
 # Documentation : FlashCourses
 
-###  Installation Steps to run FlashCourses Locally
+##  Installation Steps to run FlashCourses Locally
 
 ### University of New Hampshire, Manchester
 ### COMP 805 - Web Application Development
