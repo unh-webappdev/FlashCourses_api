@@ -26,7 +26,8 @@ from .serializers import (
 )
 from flashcards.models import Deck, Card
 from rest_framework import generics
-#from rest_framework import permissions
+from .permissions import IsDeckOwner, IsCardOwner
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 
 class CreateDeckAPIView(generics.CreateAPIView):
     """
@@ -34,7 +35,7 @@ class CreateDeckAPIView(generics.CreateAPIView):
     """
     queryset = Deck.objects.all()
     serializer_class = DeckSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    #permission_classes = (IsAuthenticatedOrReadOnly,)
 
 class RetrieveDeckAPIView(generics.RetrieveAPIView):
     """
@@ -62,7 +63,7 @@ class DestroyDeckAPIView(generics.DestroyAPIView):
     lookup_field = DECK_UNIQUE_ID
     queryset = Deck.objects.all()
     serializer_class = DeckSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    #permission_classes = (IsDeckOwner,IsAdminUser)
 
 class UpdateDeckAPIView(generics.UpdateAPIView):
     """
@@ -72,7 +73,7 @@ class UpdateDeckAPIView(generics.UpdateAPIView):
     lookup_field = DECK_UNIQUE_ID
     queryset = Deck.objects.all()
     serializer_class = DeckSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    #permission_classes = (IsDeckOwner,IsAdminUser)
 
 class DetailDeckAPIView(generics.RetrieveAPIView):
     """
@@ -118,7 +119,7 @@ class DestroyCardAPIView(generics.DestroyAPIView):
     lookup_field = CARD_UNIQUE_ID
     queryset = Card.objects.all()
     serializer_class = CardSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    #permission_classes = (IsCardOwner, IsAdminUser)
 
 class UpdateCardAPIView(generics.UpdateAPIView):
     """
@@ -128,4 +129,4 @@ class UpdateCardAPIView(generics.UpdateAPIView):
     lookup_field = CARD_UNIQUE_ID
     queryset = Card.objects.all()
     serializer_class = CardSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    #permission_classes = (IsCardOwner, IsAdminUser)
