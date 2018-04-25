@@ -29,7 +29,7 @@ Last Updated: 4/24/2018
 > -   Email address:
 > -   Password:
 > -   Password (again):
-> -   Superuser created successfully.**
+> -   Superuser created successfully.
 
 ## Open a Python shell:
 > - **$ cd flash**
