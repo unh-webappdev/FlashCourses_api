@@ -1,3 +1,7 @@
+### University of New Hampshire, Manchester
+### COMP 805 - Web Application Development
+### FlashCourses Group Project
+
 # flash
 
    ## docs-
