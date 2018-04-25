@@ -24,12 +24,12 @@ Last Updated: 4/24/2018
 ## Create a superuser:
 > - **$ cd flash**
 > - **$ cd src**
-> - **$ python3 manage.py createsuperuser		#creates a super user for your local repository
-   Username (leave blank to use yourname):
-   Email address:
-   Password:
-   Password (again):
-   Superuser created successfully.**
+> - **$ python3 manage.py createsuperuser		#creates a super user for your local repository**
+> -   Username (leave blank to use yourname):
+> -   Email address:
+> -   Password:
+> -   Password (again):
+> -   Superuser created successfully.**
 
 ## Open a Python shell:
 > - **$ cd flash**
@@ -45,7 +45,7 @@ Last Updated: 4/24/2018
 > - **$ cd flash**
 > - **$ cd src**
 > - **$ python3 manage.py runserver				#runs your local server**
-> - **On a browser, go to http://localhost:8000/admin	#or any port specified**
+> - **On a browser, go to http://localhost:8000/admin	or any port specified**
 > - Log in using super user credentials
 > - Click on models in the admin panel
 
