@@ -1,7 +1,9 @@
 """
-FlashCourses- Test cases for API endpoints for get and retrieve for card and deck endpoints
+FlashCourses- Test cases for API endpoints for institution detail.
 Created By: Swechchha Tiwari  4/22/2018
-Modified Date:
+
+Relative File Path:  /flash/src/courses/test_courses/test_institution_detail.py
+Modified Date: 4/23/2018
 """
 
 import json

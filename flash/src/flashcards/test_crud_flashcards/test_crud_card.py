@@ -2,6 +2,8 @@
 Pritha Dutta
 04.23.2018
 Testing CRUD operations for models
+
+Relative File Path:  /flash/src/flashcards/test_crud_flashcards/test_crud_card.py
 """
 
 from django.test import TestCase
@@ -30,7 +32,7 @@ class CRUDCardTest(TestCase):
         self.institution1 = Institution.objects.create(institution_name='test_name1', location='test_location1')
         self.course = Course.objects.create(course_id= 'test_id', course_title= 'title_123', course_description= 'description')
         self.course1 = Course.objects.create(course_id= 'test_id1', course_title = 'title_12', course_description= 'description1')
-        self.deck = Deck.objects.create(title='deck1', deck_description= 'desc') 
+        self.deck = Deck.objects.create(title='deck1', deck_description= 'desc')
         self.card = Card.objects.create(front='card1', back='card2')
         self.user = User.objects.create(first_name = 'first_name', last_name = 'last_name', password='password')
 
@@ -38,7 +40,7 @@ class CRUDCardTest(TestCase):
         """
         Testing object create operaions for Card model.
         """
-    
+
         self.assertIsInstance(self.card, Card)
 
     def test_Card_retrieve(self):
@@ -62,4 +64,3 @@ class CRUDCardTest(TestCase):
         """
         Card.objects.filter(front='card1').delete()
         self.assertEqual(Card.objects.count(),0)
-

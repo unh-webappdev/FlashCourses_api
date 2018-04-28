@@ -1,6 +1,8 @@
 """
 FlashCourses- Test cases for API endpoints for get and retrieve for card and deck endpoints
 Created By: Swechchha Tiwari  4/21/2018
+
+Relative File Path:  /flash/src/flashcards/test_flashcards/test_deck_detail.py
 Modified Date:  4/17/2018
 """
 
@@ -27,13 +29,9 @@ class APIgetStatusCodeDeckdetail(APITestCase):
         Sets up testing environment for GET method for card_retrieve and deck_retrieve based on unique_id.
         """
         user = User.objects.create_user('Swechchha', 'swechchha@gmail.com', 'imppwdswe')
-        user.save()
         course_tbl = Course.objects.create(course_title = 'test', course_id = '2', course_description = 'this is a test data')
-        course_tbl.save()
         deck_tbl = Deck.objects.create(title = 'test title', deck_description = 'this is a test')
-        deck_tbl.save()
         card_tbl = Card.objects.create(front = 'test', back = 'testsback')
-        card_tbl.save()
 
         self.detail_method_endpoint = [
             reverse('flashcards:flashcards_api:deck_detail', kwargs = {'unique_id': Deck.objects.first().unique_id}),

@@ -1,6 +1,8 @@
 """
 Pritha Dutta
 04.23.2018
+
+Relative File Path:  /flash/src/accounts/test_crud_account/test_crud_acc.py
 Testing CRUD operations for models
 """
 
@@ -26,7 +28,7 @@ class CRUDUserTest(TestCase):
         """
         setUp needed to perform the tests, it is called before every test function.
         """
-         
+
         self.user = User.objects.create(first_name = 'first_name', last_name = 'last_name', password='password')
 
 

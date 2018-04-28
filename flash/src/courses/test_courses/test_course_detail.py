@@ -1,6 +1,8 @@
 """
 FlashCourses- Test cases for API endpoints for course detail endpoint
 Created By: Swechchha Tiwari  4/22/2018
+
+Relative File Path:  /flash/src/courses/test_courses/test_course_detail.py
 Modified Date:
 """
 
@@ -45,5 +47,5 @@ class APIgetStatusCoursedetail(APITestCase):
         c = Client()
 
         for endpoint in self.detail_method_endpoint_course:
-            response = c.get(endpoint)   
+            response = c.get(endpoint)
         self.assertEqual(response.status_code, 200)

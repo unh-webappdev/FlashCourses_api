@@ -2,6 +2,8 @@
 Pritha Dutta
 04.23.2018
 Testing CRUD operations for models
+
+Relative File Path:  /flash/src/courses/test_crud_courses/test_crud_course.py
 """
 
 from django.test import TestCase
@@ -56,7 +58,7 @@ class CRUDCourseTest(TestCase):
         """
         Testing object update operaions for Course model.
         """
-        
+
         b = Course.objects.filter(course_title= 'title_123').update(course_id='test_id2')
         self.assertEqual(b, 1)
         self.course = Course.objects.get(id=self.course.id)
@@ -68,5 +70,3 @@ class CRUDCourseTest(TestCase):
         """
         Course.objects.filter(course_title = 'title_123').delete()
         self.assertEqual(Course.objects.count(),1)
-
-

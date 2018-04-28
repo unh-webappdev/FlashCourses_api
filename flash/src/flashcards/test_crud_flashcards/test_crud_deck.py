@@ -2,6 +2,8 @@
 Pritha Dutta
 04.23.2018
 Testing CRUD operations for models
+
+Relative File Path:  /flash/src/flashcards/test_crud_flashcards/test_crud_deck.py
 """
 
 from django.test import TestCase
@@ -39,7 +41,7 @@ class CRUDDeckTest(TestCase):
         Testing object create operations for Deck model
         """
         self.assertIsInstance(self.deck, Deck)
-    
+
     def test_Deck_retrieve(self):
         """
         Testing object retrieve operations for Deck model
@@ -61,4 +63,3 @@ class CRUDDeckTest(TestCase):
         """
         Deck.objects.filter(title='deck1').delete()
         self.assertEqual(Deck.objects.count(),0)
-

@@ -1,6 +1,8 @@
 """
 FlashCourses- Test cases for API endpoint institution create
 Created By: Swechchha Tiwari  4/6/2018
+
+Relative File Path:  /flash/src/courses/test_courses/test_institution_create.py
 Modified Date:  4/17/2018
 """
 

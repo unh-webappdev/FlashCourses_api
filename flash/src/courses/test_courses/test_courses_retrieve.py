@@ -1,6 +1,8 @@
 """
 FlashCourses- Test cases for API endpoints for retrieve using get method- Institution and course endpoints
 Created By: Swechchha Tiwari  4/19/2018
+
+Relative File Path:  /flash/src/courses/test_courses/test_course_retrieve.py
 Modified Date:  4/20/2018
 """
 

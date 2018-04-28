@@ -2,6 +2,8 @@
 Pritha Dutta
 04.23.2018
 Testing CRUD operations for models
+
+Relative File Path:  /flash/src/courses/test_crud_courses/test_crud_institution.py
 """
 
 from django.test import TestCase
@@ -65,5 +67,3 @@ class CRUDInstitutionTest(TestCase):
         """
         Institution.objects.filter(institution_name='test_name').delete()
         self.assertEqual(Institution.objects.count(),1)
-
-

@@ -1,6 +1,8 @@
 """
 FlashCourses- Test cases for API registration endpoint
 Created By: Swechchha Tiwari  4/6/2018
+
+Relative File Path:  /flash/src/accounts/test_accounts/test_registration.py
 Modified Date:  4/25/2018
 """
 

@@ -1,6 +1,8 @@
 """
 FlashCourses- Test cases for API endpoint to update course
 Created By: Swechchha Tiwari  4/22/2018
+
+Relative File Path:  /flash/src/courses/test_courses/test_course_put.py
 Modified Date:
 """
 

@@ -1,6 +1,8 @@
 """
 FlashCourses- Test cases for API endpoints card create
 Created By: Swechchha Tiwari  4/6/2018
+
+Relative File Path:  /flash/src/flashcards/test_flashcards/test_card_create.py
 Modified Date:  4/17/2018
 """
 
@@ -59,7 +61,7 @@ class APIStatusCodeCardCreate(APITestCase):
 
                 "front" : "test front",
                 "back"  : ""
-                
+
                 }
 
         for endpoint in self.post_method_endpoints_card:
