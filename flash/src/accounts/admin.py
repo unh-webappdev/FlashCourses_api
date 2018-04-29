@@ -1,5 +1,6 @@
 """
-Admin panel for the Accounts app
+Admin site register for the accounts models
+Author: Andrea Murphy
 """
 
 from django.contrib import admin

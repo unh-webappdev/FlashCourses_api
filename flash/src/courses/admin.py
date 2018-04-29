@@ -1,5 +1,6 @@
 """
-Admin panel for the Courses app
+Admin site register for the courses models
+Author: Andrea Murphy
 """
 
 from django.contrib import admin
