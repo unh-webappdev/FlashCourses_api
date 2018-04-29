@@ -1,7 +1,10 @@
-### University of New Hampshire, Manchester
-### COMP 805 - Web Application Development
-### FlashCourses Group Project
+# Documentation : FlashCourses
+
 ##  Author: Andrea Murphy
+##  Last Updated: April 2018
+##  Description: Codebase schema
+##  Relative File Path: flash/README.md
+
 
 # flash
 

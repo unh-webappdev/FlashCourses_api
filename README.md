@@ -1,11 +1,8 @@
 # Documentation : FlashCourses
-
-##  Installation Steps to run FlashCourses Locally
-
-### University of New Hampshire, Manchester
-### COMP 805 - Web Application Development
-### FlashCourses Group Project
 ##  Author: Andrea Murphy
+##  Last Updated: April 2018
+##  Description: Installation Steps to run FlashCourses Locally
+##  Relative File Path: /README.md
 
 ***Settings Configuration-***
 * To run the project locally without posting private information on GitHub
