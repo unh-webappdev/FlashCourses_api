@@ -4,17 +4,17 @@ FlashCourses Courses & Institutions REST API Class-Based Views
 File Path:     /flash/src/courses/api/views.py
 
 Modified By:   Patrick R. McElhiney, Arjun Padaliya
-Date Modified: 4/16/2018
+Date Modified: 4/22/2018
 
 NOTE: Uncomment the commented code below to enable authentication with JWT.
 """
 
 
 # Institution Fields Generalization
-inst_unique_id = 'unique_id'
+INST_UNIQUE_ID = 'unique_id'
 
 # Course Fields Generalization
-cour_unique_id = 'unique_id'
+COUR_UNIQUE_ID = 'unique_id'
 
 
 from .serializers import (
@@ -27,7 +27,7 @@ from .serializers import (
 )
 from courses.models import Institution, Course
 from rest_framework import generics
-#from rest_framework import permissions
+from rest_framework.permissions import IsAdminUser
 
 class CreateInstitutionAPIView(generics.CreateAPIView):
     """
@@ -35,14 +35,14 @@ class CreateInstitutionAPIView(generics.CreateAPIView):
     """
     queryset = Institution.objects.all()
     serializer_class = InstitutionSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    #permission_classes = (IsAdminUser,)
 
 class RetrieveInstitutionAPIView(generics.RetrieveAPIView):
     """
     This API endpoint is for retrieving an Institution object.
     """
     lookup_url_kwarg = "unique_id"
-    lookup_field = inst_unique_id
+    lookup_field = INST_UNIQUE_ID
     queryset = Institution.objects.all()
     serializer_class = InstitutionSerializer
     #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
@@ -60,20 +60,20 @@ class DestroyInstitutionAPIView(generics.DestroyAPIView):
     This API endpoint is for deleting an Institution.
     """
     lookup_url_kwarg = "unique_id"
-    lookup_field = inst_unique_id
+    lookup_field = INST_UNIQUE_ID
     queryset = Institution.objects.all()
     serializer_class = InstitutionSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    #permission_classes = (IsAdminUser,)
 
 class UpdateInstitutionAPIView(generics.UpdateAPIView):
     """
     This API endpoint is for updating a Institution object.
     """
     lookup_url_kwarg = "unique_id"
-    lookup_field = inst_unique_id
+    lookup_field = INST_UNIQUE_ID
     queryset = Institution.objects.all()
     serializer_class = InstitutionSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    #permission_classes = (IsAdminUser,)
 
 class DetailInstitutionAPIView(generics.RetrieveAPIView):
     """
@@ -82,7 +82,7 @@ class DetailInstitutionAPIView(generics.RetrieveAPIView):
     associated with the Institution object.
     """
     lookup_url_kwarg = "unique_id"
-    lookup_field = inst_unique_id
+    lookup_field = INST_UNIQUE_ID
     queryset = Institution.objects.all()
     serializer_class = InstitutionDetailSerializer
     #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
@@ -93,14 +93,14 @@ class CreateCourseAPIView(generics.CreateAPIView):
     """
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    #permission_classes = (IsAdminUser,)
 
 class RetrieveCourseAPIView(generics.RetrieveAPIView):
     """
     This API endpoint is for retrieving a Course object.
     """
     lookup_url_kwarg = "unique_id"
-    lookup_field = cour_unique_id
+    lookup_field = COUR_UNIQUE_ID
     queryset = Course.objects.all()
     serializer_class = CourseOutputSerializer
     #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
@@ -118,20 +118,20 @@ class DestroyCourseAPIView(generics.DestroyAPIView):
     This API endpoint is for deleting a Course.
     """
     lookup_url_kwarg = "unique_id"
-    lookup_field = cour_unique_id
+    lookup_field = COUR_UNIQUE_ID
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    #permission_classes = (IsAdminUser,)
 
 class UpdateCourseAPIView(generics.UpdateAPIView):
     """
     This API endpoint is for updating a Course object.
     """
     lookup_url_kwarg = "unique_id"
-    lookup_field = cour_unique_id
+    lookup_field = COUR_UNIQUE_ID
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    #permission_classes = (IsAdminUser,)
 
 class DetailCourseAPIView(generics.RetrieveAPIView):
     """
@@ -140,7 +140,7 @@ class DetailCourseAPIView(generics.RetrieveAPIView):
     associated with the Course object.
     """
     lookup_url_kwarg = "unique_id"
-    lookup_field = cour_unique_id
+    lookup_field = COUR_UNIQUE_ID
     queryset = Course.objects.all()
     serializer_class = CourseDetailSerializer
     #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
@@ -153,7 +153,7 @@ class TreeCourseAPIView(generics.RetrieveAPIView):
     each of the Deck objects.
     """
     lookup_url_kwarg = "unique_id"
-    lookup_field = cour_unique_id
+    lookup_field = COUR_UNIQUE_ID
     queryset = Course.objects.all()
     serializer_class = CourseTreeSerializer
     #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)

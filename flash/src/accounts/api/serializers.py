@@ -24,34 +24,31 @@ from rest_framework.serializers import (
 class RegistrationSerializer(ModelSerializer):
     email = EmailField(required=True, label="Email")
     email2 = EmailField(required=True, label="Retype Email")
-    username = CharField(validators=[UniqueValidator(queryset=User.objects.all())])
-    password = CharField(label="Password", style={'input_type': 'password'}, write_only=True)
-    password2 = CharField(label="Retype Password", style={'input_type': 'password'}, write_only=True)
+    username = CharField(required=True, label="Username", validators=[UniqueValidator(queryset=User.objects.all())])
+    password = CharField(required=True, label="Password", style={'input_type': 'password'}, write_only=True)
+    password2 = CharField(required=True, label="Retype Password", style={'input_type': 'password'}, write_only=True)
 
     token = SerializerMethodField(source='get_token')
 
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'email2', 'password', 'password2', 'token']
-        #extra_kwargs is required to add password-hash
-        extra_kwargs = {"password":
-                {"write_only":True}
-        }
-
-    def validate_password(self, value):
-        password_validation.validate_password(value, self.instance)
-        return value
+        #extra_kwargs required to add password-hash
+        extra_kwargs = {
+                         "password": {"write_only":True},
+                         "password2": {"write_only":True}
+                       }
 
     def validate_email(self, value):
         data =  self.get_initial()
-        email1 = data.get("email2")
-        email2 = value
+        email1 = value
+        email2 = data.get("email2")
         
         if email1!=email2:
             raise ValidationError("Emails must match.")
         
         #validating existing email
-        user_qs = User.objects.filter(email=email2)
+        user_qs = User.objects.filter(email=email1)
         if user_qs.exists():
             raise ValidationError("Email already exists.")
         
@@ -59,15 +56,21 @@ class RegistrationSerializer(ModelSerializer):
 
     def validate_email2(self, value):
         data =  self.get_initial()
-        email1 = value
-        email2 = data.get("email")
+        email1 = data.get("email")
+        email2 = value
 
         if email1!=email2:
             raise ValidationError("Emails must match.")
 
+        #validating existing email
+        user_qs = User.objects.filter(email=email2)
+        if user_qs.exists():
+            raise ValidationError("Email already exists.")
+        
         return value
 
     def validate_password(self, value):
+        password_validation.validate_password(value, self.instance)
         data =  self.get_initial()
         password1 = data.get("password2")
         password2 = value
@@ -78,6 +81,7 @@ class RegistrationSerializer(ModelSerializer):
         return value
 
     def validate_password2(self, value):
+        password_validation.validate_password(value, self.instance)
         data =  self.get_initial()
         password1 = data.get("password")
         password2 = value
@@ -88,7 +92,6 @@ class RegistrationSerializer(ModelSerializer):
         return value
 
     def create(self, validated_data):
-        print(validated_data)
         username = validated_data['username']
         password = validated_data['password']
         email = validated_data['email']
@@ -103,7 +106,6 @@ class RegistrationSerializer(ModelSerializer):
 
 
     def get_token(self, validated_data):
-        print('***********')
         attrs = {
             'username': self.initial_data['username'],
             'password': self.initial_data['password']
