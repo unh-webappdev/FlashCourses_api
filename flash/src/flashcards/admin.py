@@ -1,5 +1,6 @@
 """
-Admin panel for the Flashcard app
+Admin site register for the flashcard models
+Author: Andrea Murphy
 """
 
 from django.contrib import admin
