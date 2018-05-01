@@ -1,3 +1,10 @@
+"""
+Author: Bridget Franciscovich
+Last Updated: April 2018
+Relative File Path: flash/scr/seeder.py
+Description: Generates fake data for the database
+"""
+
 #pip3 install faker
 import time
 import random
@@ -11,10 +18,9 @@ from faker.providers import BaseProvider
 
 def seed_users(num_entries, overwrite=False):
     """
-    Author: Bridget Franciscovich
-    Creates num_entries worth of new users
-    arguments: num_entries, overwrite=False
-    prints: The number of new fake users
+    Explanation of function:Creates num_entries worth of new users
+    Arguments: num_entries, overwrite=False
+    Returns: The number of new fake users with print
     """
     count = 0
     for _ in range(num_entries):
@@ -38,10 +44,9 @@ def seed_users(num_entries, overwrite=False):
 
 def seed_institution(num_entries, overwrite=False):
     """
-    Author: Bridget Franciscovich
-    Creates num_entries worth of new Institution
-    arguments: num_entries, overwrite=False
-    prints: The number of new fake institutions
+    Explanation of function: Creates num_entries worth of new Institution
+    Arguments: num_entries, overwrite=False
+    Returns: The number of new fake institutions with print
     """
     count = 0
     for _ in range(num_entries):
@@ -62,10 +67,9 @@ def seed_institution(num_entries, overwrite=False):
 
 def seed_course(num_entries, overwrite=False):
     """
-    Author: Bridget Franciscovich
-    Creates num_entries worth of new Course
-    arguments: num_entries, overwrite=False
-    prints: The number of new fake courses
+    Explanation of function: Creates num_entries worth of new Course
+    Arguments: num_entries, overwrite=False
+    Returns: The number of new fake courses with print
     """
     institution = list(Institution.objects.all())
     count = 0
@@ -88,10 +92,9 @@ def seed_course(num_entries, overwrite=False):
 
 def seed_deck(num_entries, overwrite=False):
     """
-    Author: Bridget Franciscovich
-    Creates num_entries worth of new Deck
-    arguments: num_entries, overwrite=False
-    prints: The number of new fake decks
+    Explanation of function: Creates num_entries worth of new Deck
+    Arguments: num_entries, overwrite=False
+    Returns: The number of new fake decks with print function
     """
     user = list(User.objects.all())
     course = list(Course.objects.all())
@@ -115,10 +118,9 @@ def seed_deck(num_entries, overwrite=False):
 
 def seed_card(num_entries, overwrite=False):
     """
-    Author: Bridget Franciscovich
-    Creates num_entries worth of new Card
-    arguments: num_entries, overwrite=False
-    prints: The number of new fake cards
+    Explanation of function: Creates num_entries worth of new Card
+    Arguments: num_entries, overwrite=False
+    Retuns: The number of new fake cards with print function
     """
     deck = list(Deck.objects.all())
     count = 0
@@ -140,10 +142,9 @@ def seed_card(num_entries, overwrite=False):
 
 def seed_all(num_entries, overwrite=False):
     """
-    Author: Bridget Franciscovich
-    Runs all seeder functions
-    arguments: num_entries, overwrite=False
-    prints: The number of new fake users, institutions, courses, decks, and cards
+    Explanation of function: Runs all seeder functions
+    Arguments: num_entries, overwrite=False
+    Returns: The number of new fake users, institutions, courses, decks, and cards with print function
     """
     start_time = time.time()
 

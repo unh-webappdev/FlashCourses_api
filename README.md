@@ -1,12 +1,13 @@
 # Documentation : FlashCourses
+##  Author: Andrea Murphy
+##  Last Updated: April 2018
+##  Description: Installation Steps to run FlashCourses Locally
+##  Relative File Path: /README.md
 
-###  Installation Steps to run FlashCourses Locally
+***Settings Configuration-***
+* To run the project locally without posting private information on GitHub
 
-COMP-805 Django-FlashCourses group project
-Configuration of the settings to run the project locally without posting private information on GitHub
-
-***Settings-***
-You will need to create your own settings_private.py file to be able to run the project correctly
+* You will need to create your own settings_private.py file to be able to run the project correctly
 with the common.py file
 
 > - Create a new folder named: “settings”

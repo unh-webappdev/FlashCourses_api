@@ -1,6 +1,6 @@
 """
 Author: Andrea Murphy
-Last Updated: April
+Last Updated: April 2018
 Relative File Path: flash/src/FlashCourses/settings/common.py
 Description: Public settings file for developing
 
