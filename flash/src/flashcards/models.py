@@ -1,5 +1,5 @@
 """
-Author: Andrea Murphy
+Author: Andrea Murphy & Campbell
 Last Updated: April 17
 Relative File Path: flash/src/flashcards/models.py
 Description: flashcards models for FlashCourse application
