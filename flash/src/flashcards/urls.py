@@ -5,3 +5,4 @@ app_name = 'flashcards'
 urlpatterns = [
     path('api/', include('flashcards.api.urls', namespace='flashcards_api')),
 ]
+asd
