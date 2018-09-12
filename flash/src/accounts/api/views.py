@@ -1,4 +1,5 @@
 """
+Jim Canavan
 FlashCourses REST API User Registration Class-Based View
 
 File Path:     /flash/src/accounts/api/urls.py
@@ -12,9 +13,10 @@ from rest_framework import status
 from .serializers import RegistrationSerializer
 from django.contrib.auth.models import User
 
+
 class RegistrationAPIView(APIView):
-    """ 
-    Creates the user. 
+    """
+    Creates the user.
     """
 
     def post(self, request, format='json'):
@@ -23,7 +25,5 @@ class RegistrationAPIView(APIView):
             user = serializer.save()
             if user:
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
-                
+
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
