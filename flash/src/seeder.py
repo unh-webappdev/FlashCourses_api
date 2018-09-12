@@ -3,6 +3,7 @@ Author: Bridget Franciscovich
 Last Updated: April 2018
 Relative File Path: flash/scr/seeder.py
 Description: Generates fake data for the database
+Edit: Lloyd Dagoc
 """
 
 #pip3 install faker
