@@ -4,6 +4,8 @@ Last Updated: April 17
 Relative File Path: flash/src/accounts/models.py
 Description: accounts models for FlashCourse application
 Database: FlashCourses- mySQL
+
+jim canavan
 """
 
 from django.db import models
@@ -13,6 +15,7 @@ from django.contrib.auth.validators import ASCIIUsernameValidator
 from courses.models import Institution
 
 import uuid
+
 
 class UserProfile(models.Model):
     """
