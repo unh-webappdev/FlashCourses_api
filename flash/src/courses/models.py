@@ -1,5 +1,5 @@
 """
-Author: Andrea Murphy
+Author: Andrea Murphy and Chris
 Last Updated: April 17
 Relative File Path: flash/src/courses/models.py
 Description: course models for FlashCourse application
