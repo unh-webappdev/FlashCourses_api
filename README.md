@@ -1,33 +1,46 @@
 # Documentation : FlashCourses
-##  Author: Andrea Murphy
-##  Last Updated: April 2018
+##  Author: George Harvey
+##  Last Updated: September 2018
 ##  Description: Installation Steps to run FlashCourses Locally
 ##  Relative File Path: /README.md
 
-***Settings Configuration-***
-* To run the project locally without posting private information on GitHub
 
-* You will need to create your own settings_private.py file to be able to run the project correctly
-with the common.py file
+***Set Up Git Environemnt***
+* cd workspace/${SOMEPROJECT}/
+* Clone the Repo: git clone -o upstream https://github.com/unh-webappdev/FlashCourses_api.git
+* Connect to your own remote origin: git remote add origin <SOME GIT REPO URL> 
+* Verify Setup: cd workspace/${SOMEPROJECT}/; git remote -v
+* You should see a push and pull for upstream and origin
 
-> - Create a new folder named: “settings”
-> - Move common.py to the new settings file
-> - Create a new file in the same folder and save it as **private_settings.py**
+***Create a New venv***
+* cd workspace/venv/
+* virtenv <name of new venv>
 
->  In your new settings_private.py you only need to have 2 items in this settings file
-> - DEBUG = True
-> - SECRET_KEY = "MADE_UP_CAPITAL_STRINGS’
+***Activate venv***
+* source workspace/venv/<<name of new venv>/bin/activate
 
-### Installing the packages needed to run the project
+***Install Dependencies***
+* cd FlashCourses_api/flash/docs/
+* pip install -r requirements.txt
 
-Within your virtual environment you will need to install all the packages that are within the requirements.txt to run the code base locally
+***Check Project***
+* cd FlashCourses_api/flash/src/
+* python manage.py check
+* If you recieve the error "django.core.exceptions.ImproperlyConfigured: The SECRET_KEY setting must not be empty." follow the following steps if not skip to makemigrations
+* Creat a new file FlashCourses_api/flash/src/FlashCourses/settings/settings_private.py
+* Add in the following two lines:
+*		DEBUG = True
+*		SECRET_KEY = "SOME_RANDOM_VALUE"
 
-> Run from your terminal-
-> **$ pip3 install -r requirements.txt**
+***Make Migrations***
+* cd FlashCourses_api/flash/src/
+* python manage.py makemigrations
 
-> Check for errors
-> **$ python3 manage.py check**
+***Migrate***
+* cd FlashCourses_api/flash/src/
+* python manage.py migrate
 
-> Migrate the database
-> - **$ python3 manage.py makemigrations**
-> - **$ python3 manage.py migrate**
+***Run Server***
+* cd FlashCourses_api/flash/src/
+* python manage.py runserver
+
