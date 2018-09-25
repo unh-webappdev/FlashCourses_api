@@ -20,10 +20,10 @@ with the common.py file
 
 ### Installing the packages needed to run the project
 
-Within your virtual environment you will need to install all the packages that are within the requirements.txt to run the code base locally
+Within your virtual environment you will need to install all the packages that are within the requirements.txt to run the code base locally. The baseline package has the requirements.txt file stored in ./flash/docs/requirements.txt. Ensure you are pointing to the right directory when executing the command.
 
 > Run from your terminal-
-> **$ pip3 install -r requirements.txt**
+> **$ pip3 install -r ./flash/docs/requirements.txt**
 
 > Check for errors
 > **$ python3 manage.py check**
