@@ -1,6 +1,6 @@
 # Documentation : FlashCourses
-##  Author: Andrea Murphy
-##  Last Updated: April 2018
+##  Author: Justin Kroh
+##  Last Updated: September 2018
 ##  Description: Installation Steps to run FlashCourses Locally
 ##  Relative File Path: /README.md
 
@@ -8,11 +8,7 @@
 * To run the project locally without posting private information on GitHub
 
 * You will need to create your own settings_private.py file to be able to run the project correctly
-with the common.py file
-
-> - Create a new folder named: “settings”
-> - Move common.py to the new settings file
-> - Create a new file in the same folder and save it as **private_settings.py**
+with the common.py file in the same directory as common.py
 
 >  In your new settings_private.py you only need to have 2 items in this settings file
 > - DEBUG = True
@@ -20,10 +16,13 @@ with the common.py file
 
 ### Installing the packages needed to run the project
 
-Within your virtual environment you will need to install all the packages that are within the requirements.txt to run the code base locally
-
+Within your virtual environment you will need to install all the packages
 > Run from your terminal-
-> **$ pip3 install -r requirements.txt**
+> **$ pip(3) install djangorestframework
+  pip(3) install djangorestframework_simplejwt
+  pip(3) install django-cors-headers
+
+  
 
 > Check for errors
 > **$ python3 manage.py check**
