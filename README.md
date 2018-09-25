@@ -12,7 +12,7 @@ with the common.py file
 
 > - Create a new folder named: “settings”
 > - Move common.py to the new settings file
-> - Create a new file in the same folder and save it as **private_settings.py**
+> - Create a new file in the same folder and save it as **settings_private.py**
 
 >  In your new settings_private.py you only need to have 2 items in this settings file
 > - DEBUG = True
