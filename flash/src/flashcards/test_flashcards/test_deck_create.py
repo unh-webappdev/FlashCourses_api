@@ -17,6 +17,7 @@ from accounts.models import User
 from rest_framework import status
 from rest_framework.test import APITestCase
 
+
 class APIStatusCodeDeckCreate(APITestCase):
 
     """
@@ -25,17 +26,17 @@ class APIStatusCodeDeckCreate(APITestCase):
 
     def setUp(self):
         """
-        Sets up testing environment. Add endpoint to be tested
+        Sets up testing environment. Add endpoint to be tested.
         """
 
-        self.post_method_endpoints_deck =[
+        self.post_method_endpoints_deck = [
             reverse('flashcards:flashcards_api:deck_create')
         ]
 
     def test_deck_endpoint_post_method_with_valid_data(self):
         """
-        Create a request to deck create endpoint in post_method_endpoints. Ensure returns a 201
-        response status code
+        Create a request to deck create endpoint in post_method_endpoints.
+        Ensure returns a 201 response status code
         """
 
         c = Client()
@@ -43,8 +44,8 @@ class APIStatusCodeDeckCreate(APITestCase):
             "username": "Test",
             "email": "test@gmail.com",
             "password": "somepassword",
-            "deck_description" :  "testdescription",
-            "title" : "Web application"
+            "deck_description":  "testdescription",
+            "title": "Web application"
         }
 
         for endpoint in self.post_method_endpoints_deck:
@@ -53,8 +54,8 @@ class APIStatusCodeDeckCreate(APITestCase):
 
     def test_deck_endpoint_post_method_with_invalid_data(self):
         """
-        Create a request to deck create endpoint in post_method_endpoints. Ensure returns a 400 for invalid data
-        response status code
+        Create a request to deck create endpoint in post_method_endpoints.
+        Ensure returns a 400 for invalid data response status code
         """
 
         c = Client()
@@ -62,7 +63,7 @@ class APIStatusCodeDeckCreate(APITestCase):
              "username": "Test",
              "email": "swe@gmail.com",
              "password": "guestpassword",
-             "title" : ""
+             "title": ""
         }
 
         for endpoint in self.post_method_endpoints_deck:

@@ -11,6 +11,7 @@ from accounts.models import User
 
 import uuid
 
+
 class Deck(models.Model):
     """
     Deck model
@@ -36,7 +37,7 @@ class Deck(models.Model):
                             blank=False)
     unique_id = models.UUIDField(
                             default=uuid.uuid4,
-                            editable= False,
+                            editable=False,
                             unique=True)
 
     def __str__(self):
@@ -88,7 +89,7 @@ class Card(models.Model):
     back = models.TextField()
     unique_id = models.UUIDField(
                                 default=uuid.uuid4,
-                                editable= False,
+                                editable=False,
                                 unique=True)
 
     def __str__(self):

@@ -17,6 +17,7 @@ from accounts.models import User
 from rest_framework import status
 from rest_framework.test import APITestCase
 
+
 class APIStatusCodeCardCreate(APITestCase):
 
     """
@@ -28,14 +29,14 @@ class APIStatusCodeCardCreate(APITestCase):
         Sets up testing environment. Add endpoint to be tested
         """
 
-        self.post_method_endpoints_card =[
+        self.post_method_endpoints_card = [
             reverse('flashcards:flashcards_api:card_create')
         ]
 
     def test_card_endpoint_post_method_with_valid_data(self):
         """
-        Create a request to card create endpoint in post_method_endpoints. Ensure returns a 201
-        response status code
+        Create a request to card create endpoint in post_method_endpoints.
+        Ensure returns a 201 response status code
         """
 
         c = Client()
@@ -52,15 +53,15 @@ class APIStatusCodeCardCreate(APITestCase):
 
     def test_card_endpoint_post_method_with_invalid_data(self):
         """
-        Create a request to card create endpoint in post_method_endpoints. Ensure returns a 400 for invalid data
-        response status code
+        Create a request to card create endpoint in post_method_endpoints.
+        Ensure returns a 400 for invalid data response status code.
         """
 
         c = Client()
         invalid_data = {
 
-                "front" : "test front",
-                "back"  : ""
+                "front": "test front",
+                "back": ""
 
                 }
 
