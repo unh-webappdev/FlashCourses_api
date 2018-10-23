@@ -3,7 +3,8 @@ Pritha Dutta
 04.23.2018
 Testing CRUD operations for models
 
-Relative File Path:  /flash/src/flashcards/test_crud_flashcards/test_crud_deck.py
+Relative File Path:
+/flash/src/flashcards/test_crud_flashcards/test_crud_deck.py
 """
 
 from django.test import TestCase
@@ -18,23 +19,41 @@ import uuid
 
 
 class CRUDDeckTest(TestCase):
-    institution = None;
-    course = None;
+    institution = None
+    course = None
     deck = None
-    card = None;
-    user = None;
+    card = None
+    user = None
 
     def setUp(self):
         """
-        setUp needed to perform the tests, it is called before every test function.
+        setUp needed to perform the tests,
+        it is called before every test function.
         """
-        self.institution = Institution.objects.create(institution_name='test_name', location='test_location')
-        self.institution1 = Institution.objects.create(institution_name='test_name1', location='test_location1')
-        self.course = Course.objects.create(course_id= 'test_id', course_title= 'title_123', course_description= 'description')
-        self.course1 = Course.objects.create(course_id= 'test_id1', course_title = 'title_12', course_description= 'description1')
-        self.deck = Deck.objects.create(title='deck1', deck_description= 'desc')
-        self.card = Card.objects.create(front='card1', back='card2')
-        self.user = User.objects.create(first_name = 'first_name', last_name = 'last_name', password='password')
+        self.institution = Institution.objects.create(
+                                    institution_name='test_name',
+                                    location='test_location')
+        self.institution1 = Institution.objects.create(
+                                    institution_name='test_name1',
+                                    location='test_location1')
+        self.course = Course.objects.create(
+                                    course_id='test_id',
+                                    course_title='title_123',
+                                    course_description='description')
+        self.course1 = Course.objects.create(
+                                    course_id='test_id1',
+                                    course_title='title_12',
+                                    course_description='description1')
+        self.deck = Deck.objects.create(
+                                    title='deck1',
+                                    deck_description='desc')
+        self.card = Card.objects.create(
+                                    front='card1',
+                                    back='card2')
+        self.user = User.objects.create(
+                                    first_name='first_name',
+                                    last_name='last_name',
+                                    password='password')
 
     def test_Deck_create(self):
         """
@@ -53,8 +72,8 @@ class CRUDDeckTest(TestCase):
         """
         Testing object update operations for Deck model
         """
-        d= Deck.objects.filter(title='deck1').update(title='deck2')
-        self.deck= Deck.objects.get(id=self.deck.id)
+        d = Deck.objects.filter(title='deck1').update(title='deck2')
+        self.deck = Deck.objects.get(id=self.deck.id)
         self.assertEqual(self.deck.title, 'deck2')
 
     def test_deck_delete(self):
@@ -62,4 +81,4 @@ class CRUDDeckTest(TestCase):
         Testing object delete operations for Deck model
         """
         Deck.objects.filter(title='deck1').delete()
-        self.assertEqual(Deck.objects.count(),0)
+        self.assertEqual(Deck.objects.count(), 0)

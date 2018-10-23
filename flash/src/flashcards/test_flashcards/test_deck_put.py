@@ -17,6 +17,7 @@ from accounts.models import User
 from rest_framework import status
 from rest_framework.test import APITestCase
 
+
 class APIputStatusCodeTestsDeck(APITestCase):
 
     """
@@ -27,15 +28,20 @@ class APIputStatusCodeTestsDeck(APITestCase):
         """
         Sets up testing environment. Add all endpoints to be tested
         """
-
-        user = User.objects.create_user('Swechchha', 'swechchha@gmail.com', 'imppwdswe')
-        course_tbl = Course.objects.create(course_title = 'test', course_id = '2', course_description = 'this is a test data')
-        deck_tbl = Deck.objects.create(title = 'test title', deck_description = 'testing')
+        user = User.objects.create_user(
+            'Swechchha', 'swechchha@gmail.com', 'imppwdswe')
+        course_tbl = Course.objects.create(
+            course_title='test',
+            course_id='2',
+            course_description='this is a test data')
+        deck_tbl = Deck.objects.create(
+            title='test title',
+            deck_description='testing')
 
     def test_deck_endpoint_put_method(self):
         """
-        Create a request to every endpoint in put_method_endpoints. Ensure returns a 200
-        response status code
+        Create a request to every endpoint in put_method_endpoints.
+        Ensure returns a 200 response status code
         """
 
         c = Client()
@@ -49,7 +55,10 @@ class APIputStatusCodeTestsDeck(APITestCase):
         }
 
         self.assertEqual(deck.title, "test title")
-        response = self.client.put(reverse('flashcards:flashcards_api:deck_update', kwargs = {'unique_id': deck.unique_id}), data)
+        response = self.client.put(
+            reverse(
+                'flashcards:flashcards_api:deck_update',
+                kwargs={'unique_id': deck.unique_id}), data)
         deck = Deck.objects.first()
         self.assertEqual(deck.title, 'some new title')
         self.assertEqual(response.status_code, 200)

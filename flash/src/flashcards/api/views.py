@@ -9,6 +9,15 @@ Date Modified: 4/22/2018
 NOTE: Uncomment the commented code below to enable authentication with JWT.
 """
 
+import DeckSerializer
+import DeckOutputSerializer
+import DeckDetailSerializer
+import CardSerializer
+import CardOutputSerializer
+from flashcards.models import Deck, Card
+from rest_framework import generics
+from .permissions import IsDeckOwner, IsCardOwner
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 
 # Deck Fields Generalization
 DECK_UNIQUE_ID = 'unique_id'
@@ -17,25 +26,14 @@ DECK_UNIQUE_ID = 'unique_id'
 CARD_UNIQUE_ID = 'unique_id'
 
 
-from .serializers import (
-    DeckSerializer,
-    DeckOutputSerializer,
-    DeckDetailSerializer,
-    CardSerializer,
-    CardOutputSerializer,
-)
-from flashcards.models import Deck, Card
-from rest_framework import generics
-from .permissions import IsDeckOwner, IsCardOwner
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
-
 class CreateDeckAPIView(generics.CreateAPIView):
     """
     This API endpoint is for creating a new Deck.
     """
     queryset = Deck.objects.all()
     serializer_class = DeckSerializer
-    #permission_classes = (IsAuthenticatedOrReadOnly,)
+    # permission_classes = (IsAuthenticatedOrReadOnly,)
+
 
 class RetrieveDeckAPIView(generics.RetrieveAPIView):
     """
@@ -45,7 +43,8 @@ class RetrieveDeckAPIView(generics.RetrieveAPIView):
     lookup_field = DECK_UNIQUE_ID
     queryset = Deck.objects.all()
     serializer_class = DeckOutputSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    # permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
 
 class ListDeckAPIView(generics.ListAPIView):
     """
@@ -53,7 +52,8 @@ class ListDeckAPIView(generics.ListAPIView):
     """
     queryset = Deck.objects.all().order_by('title')
     serializer_class = DeckOutputSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    # permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
 
 class DestroyDeckAPIView(generics.DestroyAPIView):
     """
@@ -63,7 +63,8 @@ class DestroyDeckAPIView(generics.DestroyAPIView):
     lookup_field = DECK_UNIQUE_ID
     queryset = Deck.objects.all()
     serializer_class = DeckSerializer
-    #permission_classes = (IsDeckOwner,IsAdminUser)
+    # permission_classes = (IsDeckOwner,IsAdminUser)
+
 
 class UpdateDeckAPIView(generics.UpdateAPIView):
     """
@@ -73,7 +74,8 @@ class UpdateDeckAPIView(generics.UpdateAPIView):
     lookup_field = DECK_UNIQUE_ID
     queryset = Deck.objects.all()
     serializer_class = DeckSerializer
-    #permission_classes = (IsDeckOwner,IsAdminUser)
+    # permission_classes = (IsDeckOwner,IsAdminUser)
+
 
 class DetailDeckAPIView(generics.RetrieveAPIView):
     """
@@ -83,7 +85,8 @@ class DetailDeckAPIView(generics.RetrieveAPIView):
     lookup_field = DECK_UNIQUE_ID
     queryset = Deck.objects.all()
     serializer_class = DeckDetailSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    # permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
 
 class CreateCardAPIView(generics.CreateAPIView):
     """
@@ -91,7 +94,8 @@ class CreateCardAPIView(generics.CreateAPIView):
     """
     queryset = Card.objects.all()
     serializer_class = CardSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    # permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
 
 class RetrieveCardAPIView(generics.RetrieveAPIView):
     """
@@ -101,7 +105,8 @@ class RetrieveCardAPIView(generics.RetrieveAPIView):
     lookup_field = CARD_UNIQUE_ID
     queryset = Card.objects.all()
     serializer_class = CardOutputSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    # permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
 
 class ListCardAPIView(generics.ListAPIView):
     """
@@ -109,7 +114,8 @@ class ListCardAPIView(generics.ListAPIView):
     """
     queryset = Card.objects.all()
     serializer_class = CardOutputSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    # permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
 
 class DestroyCardAPIView(generics.DestroyAPIView):
     """
@@ -119,7 +125,8 @@ class DestroyCardAPIView(generics.DestroyAPIView):
     lookup_field = CARD_UNIQUE_ID
     queryset = Card.objects.all()
     serializer_class = CardSerializer
-    #permission_classes = (IsCardOwner, IsAdminUser)
+    # permission_classes = (IsCardOwner, IsAdminUser)
+
 
 class UpdateCardAPIView(generics.UpdateAPIView):
     """
@@ -129,4 +136,4 @@ class UpdateCardAPIView(generics.UpdateAPIView):
     lookup_field = CARD_UNIQUE_ID
     queryset = Card.objects.all()
     serializer_class = CardSerializer
-    #permission_classes = (IsCardOwner, IsAdminUser)
+    # permission_classes = (IsCardOwner, IsAdminUser)

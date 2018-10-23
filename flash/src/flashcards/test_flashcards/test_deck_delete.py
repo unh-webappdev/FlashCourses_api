@@ -17,6 +17,7 @@ from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.test import APITestCase
 
+
 class APIdeleteStatusCodeDeck(APITestCase):
 
     """
@@ -28,19 +29,27 @@ class APIdeleteStatusCodeDeck(APITestCase):
         Sets up testing environment. Add all endpoints to be tested
         """
 
-        userone = User.objects.create_user('Swechchha', 'swechchha@gmail.com', 'imppwdswe')
-        course_tbl = Course.objects.create(course_title = 'test', course_id = '2', course_description = 'this is a test data')
-        deck_tbl = Deck.objects.create(title = 'testone', deck_description = 'testdescription')
+        userone = User.objects.create_user(
+            'Swechchha', 'swechchha@gmail.com', 'imppwdswe')
+        course_tbl = Course.objects.create(
+                                    course_title='test',
+                                    course_id='2',
+                                    course_description='this is a test data')
+        deck_tbl = Deck.objects.create(
+                                       title='testone',
+                                       deck_description='testdescription')
 
         self.delete_method_endpoints_deck = [
-            reverse('flashcards:flashcards_api:deck_delete', kwargs = {'unique_id': Deck.objects.first().unique_id}),
+            reverse(
+                    'flashcards:flashcards_api:deck_delete',
+                    kwargs={'unique_id': Deck.objects.first().unique_id}),
 
         ]
 
     def test_self_delete_method_endpointsdeck(self):
         """
-        Create a request to every endpoint in delete_method_endpoints. Ensure returns a 204
-        response status code
+        Create a request to every endpoint in delete_method_endpoints.
+        Ensure returns a 204 response status code
         """
         c = Client()
 
